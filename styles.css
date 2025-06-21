@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font-primary: 'Barlow', sans-serif;
+    --font-mono: monospace;
+    --bg-main: #121212;
+    --bg-sidebar: #1e1e1e;
+    --bg-input: #2a2a2a;
+    --bg-box: #1c1c1c;
+    --color-text: #e0e0e0;
+    --color-subtext: #cccccc;
+    --color-heading: #ffffff;
+    --color-border: #333;
+    --color-border-light: #444;
+    --color-accent: #ff6666;
+    --color-hover: gray;
+}
+
+body {
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--color-text);
+}
+
+#sidebar {
+    width: 350px;
+    height: 100vh;
+    background-color: var(--bg-sidebar);
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 1px solid var(--color-border);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+#main {
+    padding: 20px;
+    flex-grow: 1;
+    height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Typography */
+h1,
+h2 {
+    margin-top: 0;
+    color: var(--color-heading);
+    font-weight: 400;
+}
+
+label,
+p {
+    color: var(--color-subtext);
+    margin-bottom: 20px;
+}
+
+p {
+    margin-top: 0;
+}
+
+/* Inputs */
+input[type="text"],
+#new-shape-input,
+#target-shape {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--bg-input);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+button {
+    background-color: var(--bg-input);
+    color: var(--color-heading);
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: var(--font-primary);
+}
+
+button:hover {
+    background-color: var(--color-hover);
+}
+
+.bigButton {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+/* Containers */
+#color-selection,
+#base-shapes {
+    margin-bottom: 20px;
+}
+
+#input-button-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+#new-shape-input,
+#target-shape {
+    flex: 1;
+    margin-right: 5px;
+    margin-bottom: 0;
+}
+
+/* Output */
+#output {
+    font-family: var(--font-mono);
+    background-color: var(--bg-box);
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    min-height: 100px;
+    color: #dcdcdc;
+    white-space: pre-wrap;
+    text-wrap: wrap;
+}
+
+#graph-container {
+    height: 600px;
+    background-color: var(--bg-box);
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Shape list */
+.shape-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-family: var(--font-mono);
+    background-color: var(--bg-box);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+
+.shape-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shape-label {
+    font-family: var(--font-mono);
+    font-weight: bold;
+    color: var(--color-text);
+    font-size: 12px;
+}
+
+.color-option {
+    margin-bottom: 5px;
+}
+
+.remove-shape {
+    color: var(--color-accent);
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+.settings-container {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    background-color: var(--bg-box);
+}
+
+.setting {
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.setting label {
+    min-width: 180px;
+    color: var(--color-subtext);
+    font-size: 14px;
+}
+
+.setting input[type="number"] {
+    width: 120px;
+    padding: 8px 12px;
+    background-color: var(--bg-input);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+}
+
+.setting input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.setting input[type="number"]:hover {
+    border-color: var(--color-hover);
+}
+
+/* Remove spinner buttons from number inputs */
+.setting input[type="number"]::-webkit-inner-spin-button,
+.setting input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.setting input[type="number"] {
+    -moz-appearance: textfield;
+}
